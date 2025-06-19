@@ -1,0 +1,5 @@
+module MathUtilsCxx {
+    header "MathUtilsCxx.hpp"
+
+    export *
+}

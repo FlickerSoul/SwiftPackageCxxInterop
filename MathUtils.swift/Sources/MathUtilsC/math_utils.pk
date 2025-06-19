@@ -1,0 +1,10 @@
+prefix=${pcfiledir}
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: MathUtils
+Description: A simple math utility library
+Version: 1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lmath_utils
+

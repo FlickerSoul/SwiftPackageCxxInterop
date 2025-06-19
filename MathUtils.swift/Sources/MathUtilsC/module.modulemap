@@ -1,0 +1,5 @@
+module MathUtilsCWrapper {
+    header "include/math_utils.h"
+
+    export *
+}
