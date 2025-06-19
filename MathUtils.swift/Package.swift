@@ -29,7 +29,7 @@ let package = Package(
                 .unsafeFlags(["-std=c++17"])
             ],
             linkerSettings: [
-                .linkedLibrary("math_utils"),
+                .linkedLibrary("math_utils", .when(platforms: [.macOS])),
                 .unsafeFlags(["-L\(cLib)"]),
             ]
         ),
@@ -40,7 +40,7 @@ let package = Package(
                 .interoperabilityMode(.Cxx)
             ],
             linkerSettings: [
-                .linkedLibrary("math_utils"),
+                .linkedLibrary("math_utils", .when(platforms: [.macOS])),
                 .unsafeFlags(["-L\(cLib)"]),
             ],
         ),
