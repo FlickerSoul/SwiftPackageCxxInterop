@@ -10,8 +10,8 @@ OBJECTS=$(SOURCES:.c=.o)
 HEADERS=math_utils.h
 
 # Swift package destination paths
-SWIFT_LIB_DIR=../MathUtils.swift/Sources/MathUtilsC/lib
-SWIFT_INCLUDE_DIR=../MathUtils.swift/Sources/MathUtilsC/include
+SWIFT_LIB_DIR=../MathUtils.swift/Sources/ExternalMathUtilsC/lib
+SWIFT_INCLUDE_DIR=../MathUtils.swift/Sources/ExternalMathUtilsC/include
 
 # Default target
 all: $(LIBNAME) install

@@ -4,9 +4,10 @@
 import PackageDescription
 
 let packageDirectory = Context.packageDirectory
-let cLibrary = "\(packageDirectory)/Sources/MathUtilsC"
-let cInclude = "\(cLibrary)/include"
-let cLib = "\(cLibrary)/lib"
+let externalMathUtilsC = "\(packageDirectory)/Sources/ExternalMathUtilsC"
+let cInclude = "\(externalMathUtilsC)/include"
+let cLib = "\(externalMathUtilsC)/lib"
+let cPk = "\(externalMathUtilsC)/math_utils.pk"
 
 let package = Package(
     name: "MathUtils.swift",
@@ -21,10 +22,10 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        .systemLibrary(name: "MathUtilsC", pkgConfig: "\(cLibrary)/math_utils.pk"),
+        .systemLibrary(name: "ExternalMathUtilsC", pkgConfig: cPk),
         .target(
             name: "MathUtilsCxx",
-            dependencies: ["MathUtilsC"],
+            dependencies: ["ExternalMathUtilsC"],
             cxxSettings: [
                 .unsafeFlags(["-std=c++17"])
             ],
@@ -35,7 +36,7 @@ let package = Package(
         ),
         .target(
             name: "MathUtils",
-            dependencies: ["MathUtilsC", "MathUtilsCxx"],
+            dependencies: ["ExternalMathUtilsC", "MathUtilsCxx"],
             swiftSettings: [
                 .interoperabilityMode(.Cxx)
             ],
