@@ -1,0 +1,4 @@
+module ExternalMathUtilsCxxWrapper {
+    header "include/complex_math.h"
+    export *
+}

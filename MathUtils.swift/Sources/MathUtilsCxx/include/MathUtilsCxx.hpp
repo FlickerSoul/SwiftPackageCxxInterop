@@ -12,6 +12,6 @@
 #include <vector>
 #include <math_utils.h>
 
-std::vector<bool> batchEvenOdd(int* arr, int size) SWIFT_NAME(batchEvenOdd(of:size:));
+std::vector<bool> batchEven(int* arr, int size) SWIFT_NAME(batchEven(of:size:));
 
 #endif /* MathUtilsCxx_hpp */

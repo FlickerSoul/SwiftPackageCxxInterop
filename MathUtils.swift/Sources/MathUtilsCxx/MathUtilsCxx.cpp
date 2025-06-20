@@ -7,7 +7,7 @@
 
 #include "MathUtilsCxx.hpp"
 
-std::vector<bool> batchEvenOdd(int* arr, int size) {
+std::vector<bool> batchEven(int* arr, int size) {
     std::vector<bool> results;
     results.reserve(size);
     

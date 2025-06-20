@@ -1,4 +1,4 @@
-module MathUtilsCWrapper {
+module ExternalMathUtilsCWrapper {
     header "include/math_utils.h"
 
     export *
