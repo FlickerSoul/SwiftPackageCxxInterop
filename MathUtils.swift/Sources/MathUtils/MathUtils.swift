@@ -3,6 +3,7 @@
 
 import ExternalMathUtilsCWrapper
 import ExternalMathUtilsCxxWrapper
+import MathUtilsC
 import MathUtilsCxx
 import Foundation
 
@@ -36,3 +37,58 @@ public func arg(r: Double, i: Double) -> Double {
     return ExternalMathUtilsCxxWrapper.arg(r: r, i: i)
 }
 
+public func xorCipher(input: [UInt8], key: [UInt8]) -> [UInt8]? {
+    var mutableInput = input
+    var mutableKey = key
+    var outputLength = -1
+
+    let output = MathUtilsC.xorCipher(input: &mutableInput, inputLength: mutableInput.count, key: &mutableKey, keyLength: mutableKey.count, outputLength: &outputLength)
+    
+    guard outputLength >= 0, let output else {
+        return nil
+    }
+    
+    let result = Array(UnsafeBufferPointer(start: output, count: outputLength))
+    output.deallocate()
+    
+    return result
+}
+
+public func xorDecipher(input: [UInt8], key: [UInt8]) -> [UInt8]? {
+    var mutableInput = input
+    var mutableKey = key
+    var outputLength = -1
+
+    let output = MathUtilsC.xorDecipher(input: &mutableInput, inputLength: mutableInput.count, key: &mutableKey, keyLength: mutableKey.count, outputLength: &outputLength)
+    
+    guard outputLength >= 0, let output else {
+        return nil
+    }
+    
+    let result = Array(UnsafeBufferPointer(start: output, count: outputLength))
+    output.deallocate()
+    
+    return result
+}
+
+public func additiveEncode(input: [UInt8], shift: UInt8) -> [UInt8] {
+    let output = MathUtilsCxx.additiveEncode(.init(input), shift: shift)
+    
+    var result = [UInt8]()
+    for value in output {
+        result.append(value)
+    }
+    
+    return result
+}
+
+public func additiveDecode(input: [UInt8], shift: UInt8) -> [UInt8] {
+    let output = MathUtilsCxx.additiveDecode(.init(input), shift: shift)
+    
+    var result = [UInt8]()
+    for value in output {
+        result.append(value)
+    }
+    
+    return result
+}

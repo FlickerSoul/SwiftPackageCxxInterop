@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -50,9 +50,10 @@ let package = Package(
                 .unsafeFlags(["-L\(externalMathUtilsC.lib)"]),
             ]
         ),
+        .target(name: "MathUtilsC"),
         .target(
             name: "MathUtils",
-            dependencies: ["ExternalMathUtilsC", "ExternalMathUtilsCxx", "MathUtilsCxx"],
+            dependencies: ["ExternalMathUtilsC", "ExternalMathUtilsCxx", "MathUtilsC", "MathUtilsCxx"],
             swiftSettings: [
                 .interoperabilityMode(.Cxx)
             ],
@@ -74,5 +75,7 @@ let package = Package(
             name: "MathUtilsTests",
             dependencies: ["MathUtils"]
         ),
-    ]
+    ],
+    cLanguageStandard: .c17,
+    cxxLanguageStandard: .cxx17
 )
