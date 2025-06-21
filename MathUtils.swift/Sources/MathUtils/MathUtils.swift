@@ -17,11 +17,11 @@ public func batchEven(of data: [Int32]) -> [String] {
 }
 
 public func isEven(_ number: Int32) -> Bool {
-    return ExternalMathUtilsCWrapper.isEven(number) == 1
+    return ExternalMathUtilsCWrapper.is_even(number) == 1
 }
 
 public func isOdd(_ number: Int32) -> Bool {
-    return ExternalMathUtilsCWrapper.isOdd(number) == 1
+    return ExternalMathUtilsCWrapper.is_odd(number) == 1
 }
 
 public func add(r1: Double, i1: Double, r2: Double, i2: Double) -> (Double, Double) {

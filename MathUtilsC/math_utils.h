@@ -9,14 +9,14 @@ extern "C" {
  * @param num The integer to check
  * @return 1 if the number is even, 0 otherwise
  */
-int isEven(int num);
+int is_even(int num);
 
 /**
  * Check if an integer is odd
  * @param num The integer to check
  * @return 1 if the number is odd, 0 otherwise
  */
-int isOdd(int num);
+int is_odd(int num);
 
 #ifdef __cplusplus
 }

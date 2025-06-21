@@ -1,9 +1,9 @@
 #include "math_utils.h"
 
-int isEven(int num) {
+int is_even(int num) {
     return (num % 2) == 0;
 }
 
-int isOdd(int num) {
+int is_odd(int num) {
     return (num % 2) != 0;
 }
